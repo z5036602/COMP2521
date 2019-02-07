@@ -63,7 +63,7 @@ int list_sum_items (link list)
 /** Frees all memory used in the list */
 void list_drop (link list)
 {	
-	assert (list!=NULL);
+	if (list == NULL) return;
 	link curr = list;
 	//link temp = curr;
 	while(curr!=NULL && curr->next !=list){
@@ -71,10 +71,10 @@ void list_drop (link list)
 		free(curr);				// free the current node
 		curr=temp;				//update the current 
 	}
-	//if(temp->next == list){
-		//free(temp);
-	//}
-}
+	if(curr!=NULL && curr->next ==list){
+		free(curr);
+	}
+}	
 
 
 /** Create a circular list with the specified number of nodes,
@@ -82,10 +82,11 @@ void list_drop (link list)
 link clist_new (int n_nodes)
 {	
 	int item;
+	assert(n_nodes>=0);
 	if (n_nodes == 0) return NULL;
-	link curr = node_new(0);
+	link curr = node_new(1);
 	link head = curr;
-	for(int i = 1;i < n_nodes;i++){
+	for(int i = 2;i <= n_nodes;i++){
 		item = i;
 		curr->next = node_new (item);
 		
@@ -99,22 +100,27 @@ link clist_new (int n_nodes)
 
 /** print the data in a circular fashion starting from any node */
 void clist_print (link starting_node)
-{
-	link curr = starting_node;
-	printf ("[%d]->", curr->item);
-	curr = curr->next;
-	while (curr!=starting_node){
+{	
+	if (starting_node != NULL){
+		link curr = starting_node;
 		printf ("[%d]->", curr->item);
 		curr = curr->next;
+		while (curr!=starting_node){
+			printf ("[%d]->", curr->item);
+			curr = curr->next;
+		}
+		puts ("|");
+	}else{
+		puts("|");
 	}
-	puts ("|");
 }
 
 
 /** Create a double-linked list which contains the same values,
  * in the same order as 'list' */
 dlink dlist_new_from_list (link list)
-{
+{	
+	if (list == NULL) return NULL;
 	dlink node = malloc(sizeof(*node));
 //	dlink node = malloc(sizeof(*node))
 	if (node==NULL){
@@ -166,10 +172,14 @@ void dlist_print (dlink list)
 }
 
 /** Frees all the memory used in the double-linked list */
-void dlist_drop (dlink list __unused)
+void dlist_drop (dlink list)
 {
-
-
+	if (list == NULL) return;
+	dlink curr = list;
+	while (curr != NULL){
+		dlink temp = curr->next;
+		free(curr);
+		curr=temp;
+	}
 	
-	return;
 }

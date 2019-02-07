@@ -1,0 +1,57 @@
+case NO_REBALANCE:	                             case REBALANCE_1:                   	         case REBALANCE_100:     
+Random data:              	
+size_100:
+time_insert:  time_insert_search:   height :    time_insert:  time_insert_search:  height :      time_insert:  time_insert_search:  height :        
+0.04s		  0.04s					11			0.04s		  0.04s				   6			 0.10s		   0.03			    6
+size_1000:
+time_insert:  time_insert_search:   height :	time_insert:  time_insert_search:  height :	     time_insert:  time_insert_search:   height :
+0.04s		  0.05s                 21			0.10s		  0.10s                9			 0.10s		   0.10s				 9
+size_10000:
+time_insert:  time_insert_search:   height :    time_insert:  time_insert_search:  height :		 time_insert:  time_insert_search:   height :	
+0.04s		  0.10s					35			4.08s		  4.10s			       13			 3.89s		   3.97s			     13
+size_100000:
+time_insert:  time_insert_search:   height :    time_insert:  time_insert_search:  height :	     time_insert:  time_insert_search:   height :
+0.48s		  0.61s					127			6m50		  6m54s				   16			 6m46s		   6m47s				 16
+size_1000000:	
+time_insert:  time_insert_search:   height :    time_insert:  time_insert_search:  height :	     time_insert:  time_insert_search:   height :
+5.81s		  7.30s					1176		Too slow	  Too slow 			   N/A			 Too slow	   Too slow			     N/A	
+	
+
+
+
+
+case RANDOMISED:		                 	     case SPLAY:                                     case REBALANCE_1000:	
+Random data:	                                                                                             
+size_100:     average               average                                        
+time_insert:  time_insert_search:   height :     time_insert:  time_insert_search:   height :    time_insert:  time_insert_search:   height :   
+0.01          0.01		            11			 0.04s		   in bonus	             13			 0.03s			0.03s		         11
+size_1000:
+time_insert:  time_insert_search:   height :     time_insert:  time_insert_search:   height :    time_insert:  time_insert_search:   height :
+0.04		  0.04					22			 0.04s		   in bonus		         23			 0.04s		   0.04s			     9		
+size_10000:
+time_insert:  time_insert_search:   height :     time_insert:  time_insert_search:   height :    time_insert:  time_insert_search:   height :
+0.09		  0.09					33		     0.11s		   in bonus				 35			 3.97s          3.98s				 13
+size_100000:
+time_insert:  time_insert_search:   height :     time_insert:  time_insert_search:   height :    time_insert:  time_insert_search:   height : 
+0.54		  0.68				    38			 0.68s		   in bonus				 62			 Too slow	   Too slow				 N/A
+
+
+
+
+Discussin Q
+1.  8
+ .  when slots getting larger and larger the long chains get less and less, when its prime number the data get more distributive
+2. yes
+3. 702913
+4. its just bad because of chaining, and O n serach on the lists in each node;
+5. when the size is small 'search' takes long time, when size bigger 'hash' takes more time
+6. hash function can be improved to make data more distributive;Design a good size, a deterministic and distributive hash function
+7. better hash function more appropriate size
+9
+
+
+
+
+
+
+

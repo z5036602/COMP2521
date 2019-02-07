@@ -1,0 +1,11 @@
+
+=================================================================
+==15171==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 518544 byte(s) in 142856 object(s) allocated from:
+    #0 0x80f1f4f in __interceptor_strdup (/tmp_amd/adams/export/adams/2/z5036602/Desktop/COMP2521_local/Week8/words2+0x80f1f4f)
+    #1 0x8138b0f in read_words_into_hash_table /import/adams/2/z5036602/Desktop/COMP2521_local/Week8/words2.c:68:26
+    #2 0x813876c in main /import/adams/2/z5036602/Desktop/COMP2521_local/Week8/words2.c:43:18
+    #3 0xf7465b40 in __libc_start_main (/lib/i386-linux-gnu/libc.so.6+0x1ab40)
+
+SUMMARY: AddressSanitizer: 518544 byte(s) leaked in 142856 allocation(s).
